@@ -1,0 +1,63 @@
+<!--This Activity uses a RelativeLayout as its root layout. The second Activity uses a LinearLayout.
+In a RelativeLayout, all elements are place in *relation* to other. See attributes
+layout_below, layout_above, etc. Use these attributes to tell Android which elements go where.-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <!-- ***NEVER FORGET*** -->
+    <!-- All XML attributes need these 3 attributes:
+    1) android:id (Used for referencing the object in xml and java)
+    2) android:layout_width
+    3) android:layout_height -->
+
+    <!--for width and height:
+    1)wrap_content (make it so it fits)
+    2)match_parent (make it as big as it can be)
+    3)(any number)dp (make it a specific length)-->
+
+    <TextView
+        android:id="@+id/textView"
+        android:text="@string/hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- I did something here I didn't do in class.
+    The "android:text" attribute is referencing a different xml file.
+    The file strings.xml should contain ALL of your hardcoded strings. Dr. R
+    can talk more about why you need to do this.
+    -->
+    <!-- THE BOTTOM LINE never put a string directly into a layout file. Always reference one
+    from strings.xml-->
+    <Button
+        android:id="@+id/button"
+        android:text="@string/press_me"
+        android:layout_below="@id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- For this Button, I didn't tell Android where to put in in relation to other elements.
+    I simply said, pin this button to the buttom of the container. (android:layout_alignParentBottom="true")
+    -->
+    <Button
+        android:id="@+id/next_activity_button"
+        android:text="@string/next_activity"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ADD8E6"/>
+
+    <!-- Notice two things here:
+    1) I put this element above our button. Our button is anchored to the bottom.
+    2) For height, I used a value from dimens.xml. This is the exact same as referencing
+    strings from strings.xml.-->
+    
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_box_height" />
+
+</RelativeLayout>
